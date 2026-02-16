@@ -57,7 +57,7 @@ function typeWriter(text, element, callback) {
     element.style.opacity = 1;
 
     let i = 0;
-    const speed = 50;
+    const speed = 40;
 
     if (typingTimeout) {
         clearTimeout(typingTimeout);
@@ -66,6 +66,7 @@ function typeWriter(text, element, callback) {
     function type() {
         if (i < text.length) {
             element.textContent += text.charAt(i);
+            element.scrollTop = element.scrollHeight;
             i++;
             typingTimeout = setTimeout(type, speed);
         } else {
